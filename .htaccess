@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^_data/(.*)$ - [F,L]
+RewriteRule ^data/([a-zA-Z0-9]+)(/([0-9]+))?$  persistence.php?entity=$1&id=$3 [L,QSA]
+RewriteRule ^action/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$  actions.php?entity=$1&action=$2 [L,QSA]
