@@ -11,7 +11,7 @@
 		// READ ENTITIES
 		
 		$where = "1 ";
-		foreach($_REQUEST as $paramKey => $paramValue){
+		foreach($_GET as $paramKey => $paramValue){
 			if(in_array($paramKey, array("id", "page", "_dc", "entity", "start", "limit")))
 				continue;
 			if($paramKey == "filter"){
