@@ -232,7 +232,12 @@ function latexSpecialChars( $string ){
             "{"=>"\\{",
             "}"=>"\\}",
     );
-    return preg_replace( "/([\^\%~\\\\#\$%&_\{\}])/e", "\$map['$1']", $string );
+	return preg_replace_callback( "/([\^\%~\\\\#\$%&_\{\}])/", 
+		function($matches){
+			foreach($matches as $match){
+				return $map[$match];
+			}
+		}, $string );
 }
 
 if(!isset($actions[$entity][$action])){
